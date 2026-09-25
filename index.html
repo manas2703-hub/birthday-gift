@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#090714">
+
+    <title>A Little Birthday Surprise</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="background">
+
+        <div class="moon"></div>
+
+        <div class="stars"></div>
+
+        <div class="floating-glow glow-one"></div>
+        <div class="floating-glow glow-two"></div>
+        <div class="floating-glow glow-three"></div>
+
+        <div class="falling-stars" id="ambientStars"></div>
+    </div>
+
+
+    <!-- =========================================
+         MAIN EXPERIENCE
+    ========================================== -->
+
+    <main class="experience">
+
+
+        <!-- =====================================
+             SCENE 1 — INTRO
+        ====================================== -->
+
+        <section id="introScene" class="scene active">
+
+            <div class="intro-content">
+
+                <div class="tiny-stars">
+                    ✦
+                </div>
+
+                <p class="small-intro">
+                    I made something little for you...
+                </p>
+
+                <h1 class="intro-title">
+                    Just for today,
+                    <span>just for you.</span>
+                </h1>
+
+                <p class="intro-subtitle">
+                    Take a little moment and stay here.
+                </p>
+
+                <button id="startButton" class="main-button">
+                    <span>Begin the surprise</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SCENE 2 — BIRTHDAY WISH
+        ====================================== -->
+
+        <section id="wishScene" class="scene">
+
+            <div class="wish-content">
+
+                <div class="wish-sparkle">✦</div>
+
+                <p class="eyebrow">
+                    Before anything else...
+                </p>
+
+                <!--
+                    NAME PLACEHOLDER
+
+                    If you want to add her name later,
+                    write it inside the span below.
+
+                    Example:
+                    <span id="birthdayName">Her Name</span>
+
+                    Currently it is intentionally empty.
+                -->
+
+                <h1 class="birthday-title">
+                    Happy Birthday
+                    <span id="birthdayName"></span>
+                </h1>
+
+                <p class="birthday-message">
+                    May this little moment bring
+                    a genuine smile to your face.
+                </p>
+
+                <button id="cakeButton" class="main-button">
+                    <span>There's something for you</span>
+                    <span class="button-arrow">♡</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SCENE 3 — CAKE
+        ====================================== -->
+
+        <section id="cakeScene" class="scene">
+
+            <div class="cake-content">
+
+                <p class="eyebrow">
+                    Make a wish...
+                </p>
+
+                <h2 class="cake-title">
+                    One little birthday moment 🎂
+                </h2>
+
+
+                <!-- CAKE -->
+
+                <div class="cake-area">
+
+                    <!-- Candle flames -->
+
+                    <div class="flame flame-one"></div>
+                    <div class="flame flame-two"></div>
+                    <div class="flame flame-three"></div>
+
+                    <!-- Candles -->
+
+                    <div class="candle candle-one"></div>
+                    <div class="candle candle-two"></div>
+                    <div class="candle candle-three"></div>
+
+                    <!-- Candle smoke -->
+                    <div class="candle-smoke smoke-one"></div>
+                    <div class="candle-smoke smoke-two"></div>
+                    <div class="candle-smoke smoke-three"></div>
+
+                    <!-- Cake -->
+
+                    <div class="cake">
+
+                        <div class="cake-top"></div>
+
+                        <div class="cream cream-one"></div>
+                        <div class="cream cream-two"></div>
+
+                        <div class="cake-body"></div>
+
+                        <div class="cake-bottom"></div>
+
+                    </div>
+
+                    <!-- Plate -->
+
+                    <div class="plate"></div>
+
+                </div>
+
+
+                <!-- INSTRUCTION -->
+
+                <div id="blowInstruction" class="blow-instruction">
+
+                    <div class="mic-icon">
+                        🎤
+                    </div>
+
+                    <p>
+                        Take a breath...
+                    </p>
+
+                    <span>
+                        Then blow toward your microphone
+                    </span>
+
+                </div>
+
+
+                <!-- MICROPHONE BUTTON -->
+
+                <button id="blowButton" class="blow-button">
+
+                    <span class="mic-button-icon">
+                        🎤
+                    </span>
+
+                    <span>
+                        Start candle blowing
+                    </span>
+
+                </button>
+
+
+                <!-- Manual fallback -->
+
+                <button id="manualBlowButton"
+                    class="manual-button">
+
+                    Tap here if microphone doesn't work
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SCENE 4 — BIRTHDAY SONG
+        ====================================== -->
+
+        <section id="songScene" class="scene">
+
+            <div class="song-content">
+
+                <div class="song-stars">
+                    ✦ ✧ ✦
+                </div>
+
+                <div class="celebration-icon">
+                    🎉
+                </div>
+
+                <h1>
+                    Make a wish. ✨
+                </h1>
+
+                <p id="songStatus">
+                    A little birthday song for you...
+                </p>
+
+                <div class="music-visualizer">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <p class="song-count">
+                    A little birthday song for you 🎵
+                </p>
+                <button id="skipSongBtn" class="skip-song-btn">
+                    Skip →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- TEDDY SECTION -->
+        <section id="teddyScene" class="scene">
+
+            <div class="teddy-card">
+
+                <div class="teddy-glow"></div>
+
+                <div class="teddy-wrapper">
+
+                    <div class="teddy-ear teddy-ear-left"></div>
+                    <div class="teddy-ear teddy-ear-right"></div>
+
+                    <div class="teddy-head">
+
+                        <div class="teddy-eye teddy-eye-left"></div>
+                        <div class="teddy-eye teddy-eye-right"></div>
+
+                        <div class="teddy-muzzle">
+                            <div class="teddy-nose"></div>
+                            <div class="teddy-mouth"></div>
+                        </div>
+
+                        <div class="teddy-blush teddy-blush-left"></div>
+                        <div class="teddy-blush teddy-blush-right"></div>
+
+                    </div>
+
+                    <div class="teddy-body">
+
+                        <div class="teddy-arm teddy-arm-left"></div>
+                        <div class="teddy-arm teddy-arm-right"></div>
+
+                        <div class="teddy-belly">
+                            <span>♡</span>
+                        </div>
+
+                        <div class="teddy-leg teddy-leg-left"></div>
+                        <div class="teddy-leg teddy-leg-right"></div>
+
+                    </div>
+
+                </div>
+                <div class="teddy-hearts" id="teddyHearts"></div>
+
+                <div class="teddy-message">
+
+                    <p class="teddy-small-text">
+                        One little surprise... 🧸
+                    </p>
+
+                    <h2>
+                        Someone wanted to wish you
+                        a little more personally.
+                    </h2>
+
+                    <button id="teddyNextBtn" class="teddy-next-btn">
+                        Come a little closer ✨
+                    </button>
+
+                    <p id="teddyHint" class="teddy-hint">
+                        🧸
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+        <!-- EMOTIONAL REVEAL SECTION -->
+        <!-- EMOTIONAL MEMORY SECTION -->
+        <section id="memoryScene" class="scene">
+
+            <div class="memory-card">
+
+                <div class="memory-stars">
+                    <span>✦</span>
+                    <span>·</span>
+                    <span>✧</span>
+                    <span>·</span>
+                    <span>✦</span>
+                </div>
+
+                <div class="memory-icon" id="memoryIcon">
+                    ♡
+                </div>
+
+                <p class="secret-heart-label">
+                    Psst... there’s something here for you. ♡
+                </p>
+
+                <p class="secret-heart-hint">
+                    Click the heart
+                </p>
+
+                <div id="secretMessage" class="secret-message">
+                    Some things are never really forgotten. 🤍
+                </div>
+
+                <p class="memory-intro" id="memoryIntro">
+                    There is something I wanted you to know...
+                </p>
+
+                <div class="memory-line"></div>
+
+                <h2 class="memory-title" id="memoryTitle">
+                </h2>
+
+                <p class="memory-text" id="memoryText">
+                </p>
+
+                <button id="memoryNextBtn" class="memory-next-btn">
+                    There's more... ✨
+                </button>
+
+            </div>
+
+        </section>
+
+        <div id="emotionalTransition" class="memory-transition">
+            <div class="memory-transition-stars">✦　·　✧　·　✦</div>
+            <p>Some feelings don't need a reason to remain.</p>
+        </div>
+
+
+        <!-- HEARTFELT LETTER SECTION -->
+
+        <section id="letterScene" class="scene">
+
+            <div class="letter-card">
+
+                <div class="letter-top">
+                    <span>✦</span>
+                    <span>A little truth</span>
+                    <span>✦</span>
+                </div>
+
+                <div class="letter-heart">
+                    ♡
+                </div>
+
+                <p id="letterLine1" class="letter-line">
+                    I never forgot you.
+                </p>
+
+                <p id="letterLine2" class="letter-line">
+                    Not even with time.
+                </p>
+
+                <p id="letterLine3" class="letter-line">
+                    Not even with distance.
+                </p>
+
+                <div class="letter-divider"></div>
+
+                <p id="letterLine4" class="letter-final">
+                    Some feelings simply become quieter...
+                    but they don't disappear.
+                </p>
+
+                <button id="letterNextBtn" class="letter-next-btn">
+                    One more thing... ♡
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL THOUGHT SECTION -->
+        <section id="finalThoughtScene" class="scene">
+
+            <div class="final-thought-card">
+
+                <div class="final-stars">
+                    <span>✦</span>
+                    <span>✧</span>
+                    <span>·</span>
+                    <span>✧</span>
+                    <span>✦</span>
+                </div>
+
+                <div class="final-heart">
+                    ♡
+                </div>
+
+                <p class="final-small">
+                    Before this little journey ends...
+                </p>
+
+                <h2 id="finalThoughtTitle">
+                    There is just one thing I wish for you.
+                </h2>
+
+                <div class="final-divider"></div>
+
+                <p id="finalThoughtText">
+                    Wherever life takes you, I hope it takes you
+                    somewhere beautiful.
+                </p>
+
+                <button id="finalThoughtNextBtn" class="final-thought-btn">
+                    One last thing... ♡
+                </button>
+
+            </div>
+
+        </section>
+        
+
+        <!-- FINAL MESSAGE SECTION -->
+        <section id="finalMessageScene" class="scene">
+
+            <div class="final-message-card">
+
+                <div class="final-message-glow"></div>
+
+                <div class="final-message-heart">
+                    ♡
+                </div>
+
+                <p class="final-message-small">
+                    And lastly...
+                </p>
+
+                <div class="final-message-content">
+
+                    <p class="final-line" id="finalLine1">
+                        I never stopped loving you.
+                    </p>
+
+                    <p class="final-line" id="finalLine2">
+                        And I don't think a part of me ever will.
+                    </p>
+
+                    <div class="final-message-divider"></div>
+
+                    <p class="final-line" id="finalLine3">
+                        I don't ask you for anything.
+                    </p>
+
+                    <p class="final-line" id="finalLine4">
+                        I just hope life gives you all the happiness
+                        you truly deserve.
+                    </p>
+
+                    <p class="final-line" id="finalLine5">
+                        And when you choose your life partner,
+                        choose someone who loves you, respects you,
+                        understands you, and chooses you every single day.
+                    </p>
+
+                    <p class="lifetime-line" id="lifetimeLine">
+                        Not just for today.<br>
+                        <span>For a lifetime.</span>
+                    </p>
+
+                    <p class="birthday-ending" id="birthdayEnding">
+                        Happy Birthday. 🤍
+                    </p>
+
+                    <button id="endingNextBtn" class="ending-next-btn">
+                        One last little wish ✨
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+                </section>
+
+
+        <!-- =====================================
+             FINAL QUESTION / FEEDBACK SECTION
+        ====================================== -->
+
+        <section id="questionScene" class="scene">
+
+            <div class="question-card">
+
+                <div class="question-stars">
+                    <span>✦</span>
+                    <span>·</span>
+                    <span>✧</span>
+                    <span>·</span>
+                    <span>✦</span>
+                </div>
+
+                <div class="question-heart">
+                    ♡
+                </div>
+
+                <p class="question-small">
+                    Before you go... 🤍  
+                </p>
+
+                <h2 class="question-title">
+                    So... how did this little surprise make you feel?
+                </h2>
+
+                <p class="question-subtitle">
+                    Choose any that feel right... you can select more than one. 🤍
+                </p>
+
+
+                <div class="question-options">
+
+                    <label class="question-option">
+                    <input type="checkbox" value="It made me smile">
+                    <span>🥹 It made me smile</span>
+                </label>
+
+                <label class="question-option">
+                    <input type="checkbox" value="It was really sweet">
+                    <span>❤️ It was really sweet</span>
+                </label>
+
+                <label class="question-option">
+                    <input type="checkbox" value="I loved the thought behind it">
+                    <span>🫶 I loved the thought behind it</span>
+                </label>
+
+                <label class="question-option">
+                    <input type="checkbox" value="It was a nice surprise">
+                    <span>😊 It was a nice surprise</span>
+                </label>
+
+                </div>
+
+
+                <div id="questionThankYou" class="question-thank-you">
+
+                    <p>
+                        Thank you for answering. 🤍
+                    </p>
+
+                    <span>
+                        But wait... there's one more little surprise waiting for you. 👀🧸
+                    </span>
+
+                </div>
+
+
+                <button id="questionContinueBtn"
+                    class="question-continue-btn"
+                    type="button">
+
+                    Show me the surprise ✨
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+            INTERACTIVE GIFT BOX SURPRISE
+        ====================================== -->
+
+        <section id="giftScene" class="scene">
+
+            <div class="gift-card">
+
+                <div class="gift-top">
+                    <span>✦</span>
+                    <p>One more little surprise...</p>
+                    <span>✦</span>
+                </div>
+
+                <div class="gift-message">
+                    <p>A little something, just for you. 🤍</p>
+                </div>
+
+                <!-- GIFT BOX -->
+
+                <div id="giftBoxArea" class="gift-box-area">
+
+                    <div id="giftBox" class="gift-box">
+
+                        <div class="gift-lid">
+
+                            <div class="gift-ribbon-horizontal"></div>
+
+                            <div class="gift-bow">
+                                <span class="bow-left"></span>
+                                <span class="bow-right"></span>
+                                <span class="bow-center"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="gift-base">
+
+                            <div class="gift-ribbon-vertical"></div>
+
+                        </div>
+
+                        <!-- TEDDY INSIDE -->
+
+                        <div class="gift-teddy">
+
+                            <div class="teddy-ear teddy-ear-left"></div>
+                            <div class="teddy-ear teddy-ear-right"></div>
+
+                            <div class="teddy-head">
+                                <div class="teddy-eye teddy-eye-left"></div>
+                                <div class="teddy-eye teddy-eye-right"></div>
+                                <div class="teddy-nose"></div>
+                            </div>
+
+                            <div class="teddy-body"></div>
+
+                            <div class="teddy-arm teddy-arm-left"></div>
+                            <div class="teddy-arm teddy-arm-right"></div>
+
+                            <div class="teddy-heart">
+                                🤍
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p id="giftInstruction" class="gift-instruction">
+                    Open your gift 🎁
+                </p>
+
+                <button id="openGiftBtn"
+                        class="open-gift-btn"
+                        type="button">
+
+                    Open Your Gift 🎁
+
+                </button>
+
+                <div id="giftRevealMessage" class="gift-reveal-message">
+
+                    <p>
+                        A little teddy... just to make you smile. 🧸🤍
+                    </p>
+
+                </div>
+
+                <button id="giftNextBtn"
+                        class="gift-next-btn"
+                        type="button">
+
+                    One last thing... ✨
+
+                </button>
+
+            </div>
+
+        </section>
+
+        
+
+
+        
+
+        <!-- FINAL ENDING SECTION -->
+            <section id="endingScene" class="scene">
+
+                <div class="ending-card">
+
+                    <div class="ending-stars">
+                        <span>✦</span>
+                        <span>·</span>
+                        <span>✧</span>
+                        <span>·</span>
+                        <span>✦</span>
+                    </div>
+
+                    <div class="ending-heart">
+                        ♡
+                    </div>
+
+                    <p id="endingLine1">
+                        Some memories don't need to be held onto...
+                    </p>
+
+                    <p id="endingLine2">
+                        They simply become a part of who we are.
+                    </p>
+
+                    <div class="ending-divider"></div>
+
+                    <h2 id="endingBirthday">
+                        Happy Birthday my girl🤍<br>
+                        TAKE CARE MERA PYARRA SA BACHHA🥹
+                    </h2>
+
+                    
+
+                </div>
+                
+
+            </section>
+            
+
+
+
+
+        <!-- =====================================
+             SCENE 5 — AFTER BIRTHDAY
+        ====================================== -->
+
+        <section id="afterBirthdayScene" class="scene">
+
+            <div class="after-content">
+
+                <div class="teddy-placeholder">
+
+                    🧸
+
+                </div>
+
+                <p class="eyebrow">
+                    And now...
+                </p>
+
+                <h1>
+                    The little surprise
+                    <span>actually begins.</span>
+                </h1>
+
+                <p>
+                    There is a little more I made for you.
+                </p>
+
+                <button id="continueButton"
+                    class="main-button">
+
+                    <span>Continue</span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         AUDIO
+    ========================================== -->
+
+    <audio id="birthdayAudio"
+        preload="auto">
+
+        <source
+            src="assets/music/happy-birthday.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

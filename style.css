@@ -1,0 +1,4516 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #090714;
+
+    color: white;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(104, 67, 155, 0.22),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(64, 92, 160, 0.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #080613 0%,
+            #100b21 50%,
+            #070611 100%
+        );
+
+    z-index: -10;
+}
+
+
+/* =====================================================
+   MOON
+===================================================== */
+
+.moon {
+    position: absolute;
+
+    top: 10%;
+    right: 10%;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff,
+            #e8ddff 55%,
+            #bfa9dd 100%
+        );
+
+    box-shadow:
+        0 0 30px rgba(230, 210, 255, 0.35),
+        0 0 80px rgba(180, 140, 255, 0.15);
+
+    opacity: 0.9;
+
+    animation:
+        moonFloat 6s ease-in-out infinite;
+}
+
+
+@keyframes moonFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+.stars {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size:
+        170px 170px,
+        230px 230px,
+        310px 310px;
+
+    background-position:
+        10px 30px,
+        70px 90px,
+        150px 40px;
+
+    opacity: 0.25;
+
+    animation:
+        starMove 25s linear infinite;
+}
+
+
+@keyframes starMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(60px);
+    }
+}
+
+
+/* =====================================================
+   FLOATING GLOWS
+===================================================== */
+
+.floating-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.25;
+
+    animation:
+        glowFloat 10s ease-in-out infinite;
+}
+
+
+.glow-one {
+    width: 240px;
+    height: 240px;
+
+    top: 10%;
+    left: 5%;
+
+    background: rgba(136, 86, 190, 0.4);
+}
+
+
+.glow-two {
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    bottom: 10%;
+
+    background: rgba(74, 111, 194, 0.3);
+
+    animation-delay: -3s;
+}
+
+
+.glow-three {
+    width: 180px;
+    height: 180px;
+
+    left: 30%;
+    bottom: -80px;
+
+    background: rgba(190, 100, 170, 0.3);
+
+    animation-delay: -6s;
+}
+
+
+@keyframes glowFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, -25px);
+    }
+}
+
+
+/* =====================================================
+   EXPERIENCE
+===================================================== */
+
+.experience {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* =====================================================
+   SCENES
+===================================================== */
+
+.scene {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: clamp(30px, 5vw, 70px)
+             clamp(16px, 5vw, 60px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.scene.active {
+    display: flex;
+}
+
+
+/* =====================================================
+   COMMON CONTENT
+===================================================== */
+
+.intro-content,
+.wish-content,
+.cake-content,
+.song-content,
+.after-content {
+
+    width: min(900px, 100%);
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.tiny-stars {
+
+    font-size: 38px;
+
+    margin-bottom: 25px;
+
+    color: #e7d8ff;
+
+    animation:
+        sparkle 2.5s ease-in-out infinite;
+}
+
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(0.9) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15) rotate(15deg);
+    }
+}
+
+
+.small-intro {
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    opacity: 0.55;
+
+    margin-bottom: 22px;
+}
+
+
+.intro-title {
+
+    font-size:
+        clamp(42px, 8vw, 90px);
+
+    line-height: 0.98;
+
+    font-weight: 300;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 28px;
+}
+
+
+.intro-title span {
+
+    display: block;
+
+    font-weight: 600;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #e6ccff,
+            #ffffff
+        );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientMove 5s linear infinite;
+}
+
+
+@keyframes gradientMove {
+
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 200%;
+    }
+}
+
+
+.intro-subtitle {
+
+    font-size: 16px;
+
+    opacity: 0.55;
+
+    margin-bottom: 42px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.main-button {
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    backdrop-filter: blur(15px);
+
+    color: white;
+
+    padding:
+        15px 24px;
+
+    border-radius: 100px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border 0.3s ease;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+.main-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.13);
+
+    border-color:
+        rgba(255, 255, 255, 0.35);
+}
+
+
+.button-arrow {
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   WISH
+===================================================== */
+
+.wish-sparkle {
+
+    font-size: 35px;
+
+    margin-bottom: 20px;
+
+    animation:
+        sparkle 2s infinite;
+}
+
+
+.eyebrow {
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    opacity: 0.5;
+
+    margin-bottom: 20px;
+}
+
+
+.birthday-title {
+
+    font-size:
+        clamp(45px, 8vw, 95px);
+
+    line-height: 1;
+
+    font-weight: 300;
+
+    margin-bottom: 30px;
+}
+
+
+.birthday-title span {
+
+    display: block;
+
+    font-weight: 600;
+
+    color: #ead9ff;
+
+    min-height: 1em;
+}
+
+
+.birthday-message {
+
+    max-width: 520px;
+
+    margin: 0 auto 40px;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    opacity: 0.65;
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+.cake-title {
+
+    font-size:
+        clamp(25px, 4vw, 42px);
+
+    font-weight: 300;
+
+    margin-bottom: 20px;
+}
+
+
+.cake-area {
+
+    position: relative;
+
+    width: 330px;
+
+    height: 270px;
+
+    margin:
+        15px auto 10px;
+
+    animation:
+        cakeAppear 1.2s ease forwards;
+}
+
+
+@keyframes cakeAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(50px)
+            scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   CAKE PLATE
+===================================================== */
+
+.plate {
+
+    position: absolute;
+
+    bottom: 12px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 290px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =====================================================
+   CAKE BODY
+===================================================== */
+
+.cake {
+
+    position: absolute;
+
+    bottom: 35px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 220px;
+}
+
+
+.cake-body {
+
+    width: 220px;
+    height: 90px;
+
+    border-radius:
+        0 0 18px 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f0d8ff,
+            #b995dc
+        );
+
+    box-shadow:
+        inset 0 -10px 20px rgba(70, 40, 100, 0.2),
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+.cake-top {
+
+    position: absolute;
+
+    top: -35px;
+
+    width: 220px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #fff5ff,
+            #dfc4f0
+        );
+
+    border:
+        2px solid rgba(255, 255, 255, 0.4);
+}
+
+
+.cake-bottom {
+
+    position: absolute;
+
+    bottom: -7px;
+
+    width: 220px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(126, 84, 157, 0.35);
+}
+
+
+/* =====================================================
+   CREAM
+===================================================== */
+
+.cream {
+
+    position: absolute;
+
+    z-index: 5;
+
+    width: 35px;
+    height: 50px;
+
+    border-radius:
+        0 0 50% 50%;
+
+    background:
+        #fff5ff;
+}
+
+
+.cream-one {
+
+    top: -22px;
+    left: 45px;
+}
+
+
+.cream-two {
+
+    top: -20px;
+    right: 48px;
+}
+
+
+/* =====================================================
+   CANDLES
+===================================================== */
+
+.candle {
+
+    position: absolute;
+
+    z-index: 10;
+
+    bottom: 125px;
+
+    width: 10px;
+    height: 58px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #e7caff,
+            #ffffff
+        );
+
+    box-shadow:
+        0 0 15px rgba(255, 220, 255, 0.25);
+}
+
+
+.candle-one {
+
+    left: 105px;
+}
+
+
+.candle-two {
+
+    left: 160px;
+}
+
+
+.candle-three {
+
+    left: 215px;
+}
+
+
+/* =====================================================
+   FLAMES
+===================================================== */
+
+.flame {
+
+    position: absolute;
+
+    z-index: 20;
+
+    bottom: 182px;
+
+    width: 15px;
+    height: 24px;
+
+    border-radius:
+        50% 50% 50% 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #ffffff 0 15%,
+            #ffd98a 25%,
+            #ff9d45 55%,
+            transparent 70%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(255, 170, 60, 0.8)
+        );
+
+    animation:
+        flameMove 0.7s ease-in-out infinite alternate;
+}
+
+
+.flame-one {
+
+    left: 102px;
+}
+
+
+.flame-two {
+
+    left: 157px;
+
+    animation-delay: -0.2s;
+}
+
+
+.flame-three {
+
+    left: 212px;
+
+    animation-delay: -0.4s;
+}
+
+
+@keyframes flameMove {
+
+    from {
+        transform:
+            scale(0.9)
+            rotate(-3deg);
+    }
+
+    to {
+        transform:
+            scale(1.1)
+            rotate(3deg);
+    }
+}
+
+
+/* =====================================================
+   EXTINGUISHED FLAMES
+===================================================== */
+
+.cake-area.blown .flame {
+
+    animation:
+        flameOut 0.6s ease forwards;
+}
+
+
+@keyframes flameOut {
+
+    0% {
+        transform:
+            scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(0)
+            translateY(-20px);
+        opacity: 0;
+    }
+}
+
+
+.cake-area.blown .candle {
+
+    animation:
+        candleGlow 0.5s ease forwards;
+}
+
+
+@keyframes candleGlow {
+
+    to {
+        opacity: 0.7;
+    }
+}
+
+
+/* =====================================================
+   BLOW INSTRUCTION
+===================================================== */
+
+.blow-instruction {
+
+    margin:
+        5px auto 18px;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+.mic-icon {
+
+    font-size: 22px;
+
+    margin-bottom: 6px;
+
+    animation:
+        micPulse 1.5s infinite;
+}
+
+
+@keyframes micPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+
+.blow-instruction p {
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+.blow-instruction span {
+
+    font-size: 12px;
+
+    opacity: 0.45;
+}
+
+
+/* =====================================================
+   BLOW BUTTON
+===================================================== */
+
+.blow-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        13px 22px;
+
+    border-radius: 100px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.blow-button:hover {
+
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.blow-button.listening {
+
+    animation:
+        listeningPulse 1s infinite;
+}
+
+
+@keyframes listeningPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(220, 190, 255, 0.3);
+    }
+}
+
+
+.manual-button {
+
+    display: block;
+
+    margin:
+        14px auto 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.35);
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   SONG
+===================================================== */
+
+.song-content {
+
+    animation:
+        songEntrance 1s ease;
+}
+
+
+@keyframes songEntrance {
+
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.song-stars {
+
+    font-size: 30px;
+
+    letter-spacing: 15px;
+
+    margin-bottom: 25px;
+
+    opacity: 0.7;
+}
+
+
+.celebration-icon {
+
+    font-size: 75px;
+
+    margin-bottom: 20px;
+
+    animation:
+        celebrate 1.5s ease-in-out infinite;
+}
+
+
+@keyframes celebrate {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-10px);
+    }
+}
+
+
+.song-content h1 {
+
+    font-size:
+        clamp(38px, 7vw, 75px);
+
+    font-weight: 300;
+
+    margin-bottom: 20px;
+}
+
+
+.song-content p {
+
+    opacity: 0.55;
+
+    font-size: 15px;
+}
+
+
+.music-visualizer {
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 30px auto 15px;
+}
+
+
+.music-visualizer span {
+
+    width: 5px;
+
+    height: 20px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    animation:
+        musicBar 0.7s ease-in-out infinite alternate;
+}
+
+
+.music-visualizer span:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.music-visualizer span:nth-child(3) {
+    animation-delay: -0.5s;
+}
+
+.music-visualizer span:nth-child(4) {
+    animation-delay: -0.2s;
+}
+
+.music-visualizer span:nth-child(5) {
+    animation-delay: -0.4s;
+}
+
+
+@keyframes musicBar {
+
+    from {
+        height: 10px;
+    }
+
+    to {
+        height: 45px;
+    }
+}
+
+
+.song-count {
+
+    font-size: 12px !important;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   AFTER BIRTHDAY
+===================================================== */
+
+.teddy-placeholder {
+
+    font-size: 100px;
+
+    margin-bottom: 25px;
+
+    animation:
+        teddyFloat 2.5s ease-in-out infinite;
+}
+
+
+@keyframes teddyFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(2deg);
+    }
+}
+
+
+.after-content h1 {
+
+    font-size:
+        clamp(40px, 7vw, 75px);
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+
+.after-content h1 span {
+
+    display: block;
+
+    color: #e4d0ff;
+
+    font-weight: 600;
+}
+
+
+.after-content > p {
+
+    opacity: 0.55;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .scene {
+        padding: 20px;
+    }
+
+
+    .moon {
+        width: 60px;
+        height: 60px;
+
+        top: 7%;
+        right: 8%;
+    }
+
+
+    .small-intro {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+
+    .intro-title {
+        letter-spacing: -1px;
+    }
+
+
+    .intro-subtitle {
+        font-size: 14px;
+    }
+
+
+    .birthday-message {
+        font-size: 14px;
+    }
+
+
+    .cake-area {
+        transform: scale(0.82);
+        margin-top: -5px;
+        margin-bottom: -20px;
+    }
+
+
+    .blow-instruction {
+        margin-top: -5px;
+    }
+
+
+    .blow-button {
+        font-size: 12px;
+    }
+
+
+    .manual-button {
+        font-size: 10px;
+    }
+
+
+    .teddy-placeholder {
+        font-size: 80px;
+    }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+button:focus-visible {
+
+    outline:
+        2px solid rgba(255, 255, 255, 0.7);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   TEDDY SECTION
+========================================= */
+
+#teddyScene {
+    position: relative;
+    overflow: hidden;
+}
+
+.teddy-card {
+    position: relative;
+    width: min(90%, 520px);
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    animation: teddyCardAppear 1.2s ease forwards;
+}
+
+@keyframes teddyCardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   TEDDY GLOW
+========================================= */
+
+.teddy-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: 80px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 180, 200, 0.12);
+
+    filter: blur(70px);
+
+    animation: teddyGlow 4s ease-in-out infinite;
+}
+
+@keyframes teddyGlow {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
+
+}
+
+
+/* =========================================
+   TEDDY WRAPPER
+========================================= */
+
+.teddy-wrapper {
+    position: relative;
+
+    width: 260px;
+    height: 330px;
+
+    margin-top: 10px;
+
+    animation: teddyFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes teddyFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+
+}
+
+
+/* =========================================
+   TEDDY EARS
+========================================= */
+
+.teddy-ear {
+    position: absolute;
+
+    width: 85px;
+    height: 85px;
+
+    top: 5px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 40% 35%,
+            #d99b79,
+            #9a624d
+        );
+
+    box-shadow:
+        inset 8px 8px 15px rgba(255,255,255,0.12),
+        inset -8px -10px 15px rgba(0,0,0,0.18);
+}
+
+.teddy-ear::after {
+    content: "";
+
+    position: absolute;
+
+    width: 52px;
+    height: 52px;
+
+    top: 16px;
+    left: 16px;
+
+    border-radius: 50%;
+
+    background: rgba(240, 175, 160, 0.65);
+}
+
+.teddy-ear-left {
+    left: 22px;
+}
+
+.teddy-ear-right {
+    right: 22px;
+}
+
+
+/* =========================================
+   TEDDY HEAD
+========================================= */
+
+.teddy-head {
+    position: absolute;
+
+    width: 190px;
+    height: 170px;
+
+    top: 25px;
+    left: 35px;
+
+    border-radius: 48% 48% 45% 45%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #e8b18c,
+            #a76b52 75%
+        );
+
+    z-index: 3;
+
+    box-shadow:
+        inset 10px 12px 20px rgba(255,255,255,0.12),
+        inset -12px -15px 20px rgba(0,0,0,0.15),
+        0 15px 25px rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   TEDDY EYES
+========================================= */
+
+.teddy-eye {
+    position: absolute;
+
+    width: 14px;
+    height: 17px;
+
+    top: 67px;
+
+    border-radius: 50%;
+
+    background: #211713;
+
+    box-shadow:
+        0 0 5px rgba(0,0,0,0.5);
+}
+
+.teddy-eye-left {
+    left: 52px;
+}
+
+.teddy-eye-right {
+    right: 52px;
+}
+
+
+/* =========================================
+   MUZZLE
+========================================= */
+
+.teddy-muzzle {
+    position: absolute;
+
+    width: 78px;
+    height: 55px;
+
+    left: 56px;
+    top: 82px;
+
+    border-radius: 50%;
+
+    background: #d9a47f;
+}
+
+.teddy-nose {
+    position: absolute;
+
+    width: 20px;
+    height: 15px;
+
+    top: 12px;
+    left: 29px;
+
+    border-radius: 50%;
+
+    background: #3b211b;
+}
+
+.teddy-mouth {
+    position: absolute;
+
+    width: 20px;
+    height: 12px;
+
+    top: 25px;
+    left: 29px;
+
+    border-bottom: 2px solid #3b211b;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   BLUSH
+========================================= */
+
+.teddy-blush {
+    position: absolute;
+
+    width: 27px;
+    height: 13px;
+
+    top: 98px;
+
+    border-radius: 50%;
+
+    background: rgba(235, 120, 140, 0.38);
+
+    filter: blur(3px);
+}
+
+.teddy-blush-left {
+    left: 20px;
+}
+
+.teddy-blush-right {
+    right: 20px;
+}
+
+
+/* =========================================
+   TEDDY BODY
+========================================= */
+
+.teddy-body {
+    position: absolute;
+
+    width: 175px;
+    height: 175px;
+
+    top: 165px;
+    left: 42px;
+
+    border-radius: 45% 45% 35% 35%;
+
+    background:
+        radial-gradient(
+            circle at 35% 20%,
+            #e3aa86,
+            #9c654f 75%
+        );
+
+    z-index: 2;
+
+    box-shadow:
+        inset 10px 10px 20px rgba(255,255,255,0.1),
+        inset -10px -15px 20px rgba(0,0,0,0.14);
+}
+
+
+/* =========================================
+   TEDDY ARMS
+========================================= */
+
+.teddy-arm {
+    position: absolute;
+
+    width: 62px;
+    height: 105px;
+
+    top: 25px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d79a78,
+            #925c49
+        );
+
+    z-index: -1;
+}
+
+.teddy-arm-left {
+    left: -37px;
+
+    transform: rotate(25deg);
+}
+
+.teddy-arm-right {
+    right: -37px;
+
+    transform: rotate(-25deg);
+}
+
+
+/* =========================================
+   TEDDY BELLY
+========================================= */
+
+.teddy-belly {
+    position: absolute;
+
+    width: 105px;
+    height: 95px;
+
+    top: 42px;
+    left: 35px;
+
+    border-radius: 50%;
+
+    background: rgba(231, 181, 150, 0.8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 5px 5px 12px rgba(255,255,255,0.1);
+}
+
+.teddy-belly span {
+    font-size: 35px;
+
+    color: rgba(125, 50, 65, 0.75);
+
+    animation: heartBeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+}
+
+
+/* =========================================
+   TEDDY LEGS
+========================================= */
+
+.teddy-leg {
+    position: absolute;
+
+    width: 70px;
+    height: 55px;
+
+    bottom: -25px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d79a78,
+            #925c49
+        );
+}
+
+.teddy-leg-left {
+    left: 10px;
+}
+
+.teddy-leg-right {
+    right: 10px;
+}
+
+
+/* =========================================
+   TEDDY MESSAGE
+========================================= */
+
+.teddy-message {
+    position: relative;
+
+    z-index: 5;
+
+    margin-top: 45px;
+
+    text-align: center;
+
+    max-width: 400px;
+}
+
+.teddy-small-text {
+    margin-bottom: 12px;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.55);
+}
+
+.teddy-message h2 {
+    margin: 0;
+
+    font-size: 1.35rem;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    color: rgba(255,255,255,0.92);
+}
+
+
+/* =========================================
+   TEDDY BUTTON
+========================================= */
+
+.teddy-next-btn {
+    margin-top: 28px;
+
+    padding: 13px 25px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.teddy-next-btn:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255,255,255,0.13);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .teddy-card {
+        min-height: 620px;
+        padding: 35px 18px;
+    }
+
+    .teddy-wrapper {
+        transform: scale(0.88);
+        margin-top: -5px;
+        margin-bottom: -20px;
+    }
+
+    .teddy-message h2 {
+        font-size: 1.15rem;
+    }
+
+}
+
+
+/* =========================================
+   MEMORY / EMOTIONAL REVEAL
+========================================= */
+
+#memoryScene {
+    position: relative;
+    overflow: hidden;
+}
+
+.memory-card {
+    position: relative;
+
+    width: min(88%, 620px);
+
+    padding: 65px 45px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.35);
+
+    animation: memoryAppear 1.5s ease forwards;
+}
+
+@keyframes memoryAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Floating stars */
+
+.memory-stars {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.memory-stars span {
+    position: absolute;
+
+    font-size: 18px;
+
+    color: rgba(255,255,255,0.45);
+
+    animation: memoryStarFloat 4s ease-in-out infinite;
+}
+
+.memory-stars span:nth-child(1) {
+    top: 12%;
+    left: 12%;
+}
+
+.memory-stars span:nth-child(2) {
+    top: 25%;
+    right: 15%;
+}
+
+.memory-stars span:nth-child(3) {
+    bottom: 20%;
+    left: 18%;
+}
+
+.memory-stars span:nth-child(4) {
+    bottom: 12%;
+    right: 20%;
+}
+
+.memory-stars span:nth-child(5) {
+    top: 45%;
+    right: 8%;
+}
+
+@keyframes memoryStarFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.8;
+    }
+
+}
+
+
+/* Heart */
+
+.memory-icon {
+    font-size: 48px;
+
+    margin-bottom: 25px;
+
+    color: rgba(255, 190, 205, 0.85);
+
+    animation: memoryHeart 2.5s ease-in-out infinite;
+}
+
+@keyframes memoryHeart {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+
+}
+
+
+/* Intro */
+
+.memory-intro {
+    margin: 0;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.5);
+}
+
+
+/* Divider */
+
+.memory-line {
+    width: 55px;
+    height: 1px;
+
+    margin: 25px auto;
+
+    background: rgba(255,255,255,0.25);
+}
+
+
+/* Main title */
+
+.memory-title {
+    margin: 0 auto;
+
+    max-width: 520px;
+
+    font-size: 1.55rem;
+
+    line-height: 1.55;
+
+    font-weight: 400;
+
+    color: rgba(255,255,255,0.94);
+}
+
+
+/* Paragraph */
+
+.memory-text {
+    max-width: 500px;
+
+    margin: 28px auto 0;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+    color: rgba(255,255,255,0.62);
+}
+
+
+/* Button */
+
+.memory-next-btn {
+    margin-top: 35px;
+
+    padding: 13px 26px;
+
+    border: 1px solid rgba(255,255,255,0.16);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.06);
+
+    color: rgba(255,255,255,0.9);
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.memory-next-btn:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255,255,255,0.11);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.2);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .memory-card {
+        padding: 50px 25px;
+    }
+
+    .memory-title {
+        font-size: 1.3rem;
+    }
+
+    .memory-text {
+        font-size: 0.92rem;
+        line-height: 1.8;
+    }
+
+}
+
+
+/* =========================================
+   MEMORY / EMOTIONAL REVEAL
+========================================= */
+
+#memoryScene {
+    position: relative;
+    overflow: hidden;
+}
+
+.memory-card {
+    position: relative;
+
+    width: min(88%, 620px);
+
+    padding: 65px 45px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.35);
+
+    animation: memoryAppear 1.5s ease forwards;
+}
+
+@keyframes memoryAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Floating stars */
+
+.memory-stars {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.memory-stars span {
+    position: absolute;
+
+    font-size: 18px;
+
+    color: rgba(255,255,255,0.45);
+
+    animation: memoryStarFloat 4s ease-in-out infinite;
+}
+
+.memory-stars span:nth-child(1) {
+    top: 12%;
+    left: 12%;
+}
+
+.memory-stars span:nth-child(2) {
+    top: 25%;
+    right: 15%;
+}
+
+.memory-stars span:nth-child(3) {
+    bottom: 20%;
+    left: 18%;
+}
+
+.memory-stars span:nth-child(4) {
+    bottom: 12%;
+    right: 20%;
+}
+
+.memory-stars span:nth-child(5) {
+    top: 45%;
+    right: 8%;
+}
+
+@keyframes memoryStarFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.8;
+    }
+
+}
+
+
+/* Heart */
+
+.memory-icon {
+    font-size: 48px;
+
+    margin-bottom: 25px;
+
+    color: rgba(255, 190, 205, 0.85);
+
+    animation: memoryHeart 2.5s ease-in-out infinite;
+}
+
+@keyframes memoryHeart {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+
+}
+
+
+/* Intro */
+
+.memory-intro {
+    margin: 0;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.5);
+}
+
+
+/* Divider */
+
+.memory-line {
+    width: 55px;
+    height: 1px;
+
+    margin: 25px auto;
+
+    background: rgba(255,255,255,0.25);
+}
+
+
+/* Main title */
+
+.memory-title {
+    margin: 0 auto;
+
+    max-width: 520px;
+
+    font-size: 1.55rem;
+
+    line-height: 1.55;
+
+    font-weight: 400;
+
+    color: rgba(255,255,255,0.94);
+}
+
+
+/* Paragraph */
+
+.memory-text {
+    max-width: 500px;
+
+    margin: 28px auto 0;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+    color: rgba(255,255,255,0.62);
+}
+
+
+/* Button */
+
+.memory-next-btn {
+    margin-top: 35px;
+
+    padding: 13px 26px;
+
+    border: 1px solid rgba(255,255,255,0.16);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.06);
+
+    color: rgba(255,255,255,0.9);
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.memory-next-btn:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255,255,255,0.11);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.2);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .memory-card {
+        padding: 50px 25px;
+    }
+
+    .memory-title {
+        font-size: 1.3rem;
+    }
+
+    .memory-text {
+        font-size: 0.92rem;
+        line-height: 1.8;
+    }
+
+}
+
+/* =========================================================
+   RESPONSIVE SCENE HEIGHT FIX
+========================================================= */
+
+@media (max-height: 850px) {
+
+    .scene {
+        align-items: flex-start;
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+
+@media (max-height: 650px) {
+
+    .scene {
+        align-items: flex-start;
+
+        padding-top: 20px;
+        padding-bottom: 30px;
+
+        overflow-y: auto;
+    }
+}
+
+
+/* =========================================================
+   TEDDY INTERACTION
+========================================================= */
+
+.teddy-hint {
+    margin-top: 14px;
+
+    font-size: 0.75rem;
+
+    color: rgba(255,255,255,0.35);
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+}
+
+
+/* Teddy reacts when clicked */
+
+.teddy-card.teddy-reacting .teddy-wrapper {
+    animation:
+        teddyReaction 1.2s ease,
+        teddyFloat 3.5s ease-in-out 1.2s infinite;
+}
+
+@keyframes teddyReaction {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.06) rotate(-2deg);
+    }
+
+    50% {
+        transform: scale(0.97) rotate(2deg);
+    }
+
+    75% {
+        transform: scale(1.03) rotate(-1deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* Heart becomes brighter */
+
+.teddy-card.teddy-reacting .teddy-belly span {
+    animation:
+        bigHeartBeat 0.8s ease-in-out 2;
+}
+
+@keyframes bigHeartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+}
+
+
+/* Button transition */
+
+.teddy-card.teddy-reacting .teddy-next-btn {
+    opacity: 0;
+    transform: translateY(10px);
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   DYNAMIC MEMORY REVEAL
+========================================================= */
+
+#memoryIntro,
+#memoryTitle,
+#memoryText,
+#memoryNextBtn {
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+#memoryIntro {
+    opacity: 0;
+}
+
+#memoryTitle {
+    opacity: 0;
+
+    transform: translateY(15px);
+}
+
+#memoryText {
+    opacity: 0;
+
+    transform: translateY(15px);
+}
+
+#memoryNextBtn {
+    opacity: 0;
+
+    transform: translateY(10px);
+}
+
+#memoryTitle[style*="opacity: 1"],
+#memoryText[style*="opacity: 1"],
+#memoryNextBtn[style*="opacity: 1"] {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   HEARTFELT LETTER SECTION
+========================================================= */
+
+#letterScene {
+    overflow: hidden;
+}
+
+.letter-card {
+    position: relative;
+
+    width: min(
+        calc(100% - 10px),
+        620px
+    );
+
+    padding:
+        clamp(40px, 8vw, 70px)
+        clamp(22px, 7vw, 55px);
+
+    text-align: center;
+
+    border-radius:
+        clamp(24px, 5vw, 36px);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.02)
+        );
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.4);
+
+    animation:
+        letterAppear 1.5s ease forwards;
+}
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* top label */
+
+.letter-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    font-size:
+        clamp(0.65rem, 2.5vw, 0.8rem);
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,0.4);
+}
+
+
+/* heart */
+
+.letter-heart {
+    font-size:
+        clamp(38px, 10vw, 55px);
+
+    margin-bottom: 30px;
+
+    color:
+        rgba(255,190,205,0.85);
+
+    animation:
+        letterHeartFloat 3s ease-in-out infinite;
+}
+
+@keyframes letterHeartFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            scale(1.08);
+    }
+}
+
+
+/* individual lines */
+
+.letter-line {
+    margin: 0 auto 18px;
+
+    font-size:
+        clamp(1.05rem, 4vw, 1.35rem);
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,0.88);
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.letter-line.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* divider */
+
+.letter-divider {
+    width: 45px;
+
+    height: 1px;
+
+    margin:
+        28px
+        auto;
+
+    background:
+        rgba(255,255,255,0.25);
+}
+
+
+/* final message */
+
+.letter-final {
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    font-size:
+        clamp(0.9rem, 3vw, 1.05rem);
+
+    line-height: 1.9;
+
+    font-style: italic;
+
+    color:
+        rgba(255,255,255,0.58);
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity 1.3s ease,
+        transform 1.3s ease;
+}
+
+.letter-final.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* next button */
+
+.letter-next-btn {
+    margin-top:
+        clamp(28px, 6vw, 38px);
+
+    padding:
+        12px
+        clamp(18px, 5vw, 27px);
+
+    border:
+        1px solid rgba(255,255,255,0.16);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color:
+        rgba(255,255,255,0.9);
+
+    font-size:
+        clamp(0.78rem, 2.5vw, 0.9rem);
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 1s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.letter-next-btn.show {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+}
+
+.letter-next-btn:hover {
+    background:
+        rgba(255,255,255,0.12);
+
+    transform:
+        translateY(-3px);
+}
+
+.letter-next-btn:active {
+    transform:
+        scale(0.96);
+}
+
+
+/* small screens */
+
+@media (max-width: 380px) {
+
+    .letter-card {
+        padding:
+            35px
+            17px;
+    }
+
+    .letter-line {
+        line-height: 1.6;
+    }
+
+}
+
+
+/* ================================
+   FINAL THOUGHT
+================================ */
+
+.final-thought-card {
+    position: relative;
+    width: min(92vw, 620px);
+    padding: clamp(35px, 6vw, 65px)
+             clamp(22px, 6vw, 55px);
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.45),
+        0 0 60px rgba(255,180,220,0.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    overflow: hidden;
+}
+
+
+/* Stars */
+
+.final-stars {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 0.9rem;
+}
+
+
+/* Heart */
+
+.final-heart {
+    font-size: clamp(3rem, 10vw, 5rem);
+
+    color: rgba(255,255,255,0.9);
+
+    margin-bottom: 20px;
+
+    animation:
+        finalHeartFloat 3s ease-in-out infinite,
+        finalHeartGlow 2.5s ease-in-out infinite;
+}
+
+
+@keyframes finalHeartFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@keyframes finalHeartGlow {
+
+    0%, 100% {
+        text-shadow:
+            0 0 15px rgba(255,255,255,0.15);
+    }
+
+    50% {
+        text-shadow:
+            0 0 35px rgba(255,190,220,0.45);
+    }
+}
+
+
+/* Small text */
+
+.final-small {
+    margin-bottom: 20px;
+
+    font-size: clamp(0.72rem, 2vw, 0.85rem);
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,0.45);
+}
+
+
+/* Title */
+
+#finalThoughtTitle {
+    margin: 0 auto;
+
+    max-width: 500px;
+
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+
+    line-height: 1.35;
+
+    font-weight: 500;
+
+    color: rgba(255,255,255,0.95);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* Divider */
+
+.final-divider {
+    width: 55px;
+    height: 1px;
+
+    margin: 30px auto;
+
+    background: rgba(255,255,255,0.3);
+}
+
+
+/* Main message */
+
+#finalThoughtText {
+    max-width: 470px;
+
+    margin: 0 auto;
+
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+
+    line-height: 1.9;
+
+    color: rgba(255,255,255,0.68);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* Button */
+
+.final-thought-btn {
+    margin-top: 35px;
+
+    padding: 13px 27px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    background: rgba(255,255,255,0.07);
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 1.2s ease;
+}
+
+
+.final-thought-btn:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 10px 30px rgba(255,180,220,0.12);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .final-thought-card {
+        width: 92vw;
+
+        padding:
+            38px 22px;
+
+        border-radius: 24px;
+    }
+
+    .final-stars {
+        gap: 12px;
+    }
+
+    #finalThoughtText {
+        line-height: 1.75;
+    }
+
+}
+
+
+/* Short screens */
+
+@media (max-height: 700px) {
+
+    .final-thought-card {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .final-heart {
+        margin-bottom: 10px;
+    }
+
+    .final-divider {
+        margin: 20px auto;
+    }
+
+}
+
+
+/* =================================
+   FINAL MESSAGE
+================================= */
+
+.final-message-card {
+    position: relative;
+
+    width: min(92vw, 680px);
+
+    padding:
+        clamp(40px, 7vw, 75px)
+        clamp(22px, 7vw, 60px);
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.5);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    overflow: hidden;
+}
+
+
+/* Glow */
+
+.final-message-glow {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -120px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,180,220,0.18),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Heart */
+
+.final-message-heart {
+    position: relative;
+
+    font-size: clamp(3.5rem, 12vw, 5.5rem);
+
+    margin-bottom: 18px;
+
+    color: rgba(255,255,255,0.92);
+
+    animation:
+        finalHeartPulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes finalHeartPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+/* Small heading */
+
+.final-message-small {
+    position: relative;
+
+    margin-bottom: 35px;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,0.4);
+}
+
+
+/* Lines */
+
+.final-line {
+    max-width: 540px;
+
+    margin: 0 auto 25px;
+
+    font-size: clamp(0.95rem, 2.5vw, 1.08rem);
+
+    line-height: 1.85;
+
+    color: rgba(255,255,255,0.72);
+
+    opacity: 0;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease;
+}
+
+
+.final-line.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* First line */
+
+#finalLine1 {
+    font-size: clamp(1.35rem, 4vw, 2rem);
+
+    color: rgba(255,255,255,0.95);
+
+    margin-bottom: 18px;
+}
+
+
+/* Second line */
+
+#finalLine2 {
+    color: rgba(255,255,255,0.55);
+}
+
+
+/* Divider */
+
+.final-message-divider {
+    width: 55px;
+    height: 1px;
+
+    margin: 35px auto;
+
+    background: rgba(255,255,255,0.25);
+}
+
+
+/* Life partner paragraph */
+
+#finalLine5 {
+    margin-top: 40px;
+
+    color: rgba(255,255,255,0.8);
+}
+
+
+/* Lifetime */
+
+.lifetime-line {
+    margin-top: 45px;
+
+    font-size: clamp(1.2rem, 4vw, 1.7rem);
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,0.75);
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+.lifetime-line.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.lifetime-line span {
+    font-size: clamp(1.6rem, 5vw, 2.3rem);
+
+    color: rgba(255,255,255,0.98);
+
+    letter-spacing: 1px;
+}
+
+
+/* Birthday ending */
+
+.birthday-ending {
+    margin-top: 50px;
+
+    font-size: clamp(1rem, 3vw, 1.25rem);
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.9);
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+.birthday-ending.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .final-message-card {
+        width: 92vw;
+
+        padding:
+            40px 20px;
+
+        border-radius: 24px;
+    }
+
+    .final-message-small {
+        margin-bottom: 25px;
+    }
+
+    .final-line {
+        line-height: 1.75;
+    }
+
+    .final-message-divider {
+        margin: 25px auto;
+    }
+
+    #finalLine5 {
+        margin-top: 30px;
+    }
+
+    .lifetime-line {
+        margin-top: 35px;
+    }
+
+    .birthday-ending {
+        margin-top: 35px;
+    }
+}
+
+
+/* =================================
+   FINAL MESSAGE - COMPACT RESPONSIVE
+================================= */
+
+.final-message-card {
+    width: min(92vw, 620px);
+
+    padding: clamp(28px, 5vw, 50px)
+             clamp(20px, 5vw, 45px);
+
+    border-radius: 26px;
+}
+
+
+/* Reduce heart size */
+
+.final-message-heart {
+    font-size: clamp(2.8rem, 9vw, 4.5rem);
+    margin-bottom: 10px;
+}
+
+
+/* Reduce top spacing */
+
+.final-message-small {
+    margin-bottom: 20px;
+}
+
+
+/* Reduce paragraph spacing */
+
+.final-line {
+    margin-bottom: 16px;
+    line-height: 1.65;
+}
+
+
+/* First line */
+
+#finalLine1 {
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+    margin-bottom: 10px;
+}
+
+
+/* Second line */
+
+#finalLine2 {
+    margin-bottom: 12px;
+}
+
+
+/* Divider */
+
+.final-message-divider {
+    margin: 22px auto;
+}
+
+
+/* Life partner message */
+
+#finalLine5 {
+    margin-top: 24px;
+}
+
+
+/* Lifetime */
+
+.lifetime-line {
+    margin-top: 28px;
+    line-height: 1.5;
+}
+
+
+/* Birthday */
+
+.birthday-ending {
+    margin-top: 28px;
+}
+
+
+/* Small-height screens */
+
+@media (max-height: 800px) {
+
+    .final-message-card {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .final-message-heart {
+        font-size: 3rem;
+        margin-bottom: 6px;
+    }
+
+    .final-message-small {
+        margin-bottom: 15px;
+    }
+
+    .final-line {
+        margin-bottom: 12px;
+        line-height: 1.55;
+    }
+
+    .final-message-divider {
+        margin: 16px auto;
+    }
+
+    #finalLine5 {
+        margin-top: 18px;
+    }
+
+    .lifetime-line {
+        margin-top: 20px;
+    }
+
+    .birthday-ending {
+        margin-top: 20px;
+    }
+}
+
+
+/* Very small screens */
+
+@media (max-height: 650px) {
+
+    .final-message-card {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .final-message-heart {
+        display: none;
+    }
+
+    .final-message-small {
+        margin-bottom: 12px;
+    }
+
+    .final-line {
+        margin-bottom: 9px;
+        line-height: 1.45;
+    }
+
+    .final-message-divider {
+        margin: 12px auto;
+    }
+
+    #finalLine5 {
+        margin-top: 14px;
+    }
+
+    .lifetime-line {
+        margin-top: 15px;
+    }
+
+    .birthday-ending {
+        margin-top: 15px;
+    }
+}
+
+/* =================================
+   FINAL ENDING
+================================= */
+
+.ending-card {
+
+    position: relative;
+
+    width: min(90vw, 600px);
+
+    min-height: 420px;
+
+    padding:
+        clamp(40px, 7vw, 65px)
+        clamp(22px, 6vw, 50px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.015)
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    overflow: hidden;
+}
+
+
+/* soft glow */
+
+.ending-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,190,220,0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Stars */
+
+.ending-stars {
+
+    position: relative;
+
+    display: flex;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+    color: rgba(255,255,255,0.45);
+
+    font-size: 0.8rem;
+
+    animation:
+        endingStars 4s ease-in-out infinite;
+}
+
+
+@keyframes endingStars {
+
+    0%, 100% {
+        opacity: 0.45;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Heart */
+
+.ending-heart {
+
+    position: relative;
+
+    font-size: clamp(3.5rem, 10vw, 5rem);
+
+    color: rgba(255,255,255,0.9);
+
+    margin-bottom: 30px;
+
+    animation:
+        endingHeart 3s ease-in-out infinite;
+}
+
+
+@keyframes endingHeart {
+
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+/* Text */
+
+#endingLine1,
+#endingLine2 {
+
+    position: relative;
+
+    max-width: 470px;
+
+    margin: 0 auto;
+
+    font-size: clamp(0.95rem, 2.5vw, 1.08rem);
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,0.68);
+
+    opacity: 0;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+#endingLine1.show,
+#endingLine2.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+#endingLine2 {
+
+    margin-top: 18px;
+
+    color: rgba(255,255,255,0.48);
+}
+
+
+/* Divider */
+
+.ending-divider {
+
+    position: relative;
+
+    width: 45px;
+
+    height: 1px;
+
+    margin: 32px auto;
+
+    background: rgba(255,255,255,0.25);
+}
+
+
+/* Birthday */
+
+#endingBirthday {
+
+    position: relative;
+
+    margin: 0;
+
+    font-size: clamp(1.25rem, 4vw, 1.8rem);
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,0.92);
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 1.8s ease,
+        transform 1.8s ease;
+}
+
+
+#endingBirthday.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .ending-card {
+
+        width: 92vw;
+
+        min-height: 380px;
+
+        padding: 35px 20px;
+
+        border-radius: 24px;
+    }
+
+    .ending-stars {
+
+        margin-bottom: 18px;
+    }
+
+    .ending-heart {
+
+        margin-bottom: 22px;
+    }
+
+    #endingLine1,
+    #endingLine2 {
+
+        line-height: 1.7;
+    }
+
+    .ending-divider {
+
+        margin: 25px auto;
+    }
+
+}
+
+
+/* Short screens */
+
+@media (max-height: 700px) {
+
+    .ending-card {
+
+        min-height: 350px;
+
+        padding-top: 25px;
+
+        padding-bottom: 25px;
+    }
+
+    .ending-heart {
+
+        font-size: 3.2rem;
+
+        margin-bottom: 15px;
+    }
+
+    .ending-stars {
+
+        margin-bottom: 12px;
+    }
+
+    .ending-divider {
+
+        margin: 20px auto;
+    }
+
+}
+
+
+/* FINAL MESSAGE NEXT BUTTON */
+
+.ending-next-btn {
+
+    display: block;
+
+    margin: 35px auto 0;
+
+    padding: 13px 26px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.07);
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Button appears after final message */
+
+.ending-next-btn.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+
+.ending-next-btn:hover {
+
+    background: rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 10px 30px rgba(255,180,220,0.12);
+
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 600px) {
+
+    .ending-next-btn {
+
+        margin-top: 25px;
+
+        padding: 12px 22px;
+
+        font-size: 0.8rem;
+    }
+
+}
+
+/* =========================================================
+   7 EXPERIENCE UPGRADES
+========================================================= */
+
+/* 2 — soft falling stars */
+.falling-stars {
+    position: absolute;
+    inset: -10% 0 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.falling-stars span {
+    position: absolute;
+    top: -20px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.7);
+    box-shadow: 0 0 9px rgba(255,255,255,0.45);
+    animation: fallingStar linear infinite;
+}
+
+@keyframes fallingStar {
+    0% { transform: translate3d(0,-20px,0) scale(0.6); opacity: 0; }
+    12% { opacity: 0.8; }
+    80% { opacity: 0.45; }
+    100% { transform: translate3d(25px,110vh,0) scale(1); opacity: 0; }
+}
+
+/* 4 — candle smoke */
+.candle-smoke {
+    position: absolute;
+    z-index: 21;
+    bottom: 194px;
+    width: 9px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(to top, rgba(255,255,255,0.18), transparent);
+    filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.smoke-one { left: 105px; }
+.smoke-two { left: 160px; }
+.smoke-three { left: 215px; }
+
+.cake-area.blown .candle-smoke {
+    animation: candleSmoke 1.8s ease-out forwards;
+}
+
+@keyframes candleSmoke {
+    0% { opacity: 0; transform: translateY(8px) scale(0.6); }
+    20% { opacity: 0.7; }
+    100% { opacity: 0; transform: translateY(-48px) translateX(5px) scale(1.8); }
+}
+
+/* 5 — teddy interaction */
+.teddy-wrapper {
+    cursor: pointer;
+    user-select: none;
+}
+
+.teddy-wrapper:focus-visible {
+    outline: 2px solid rgba(255,255,255,0.55);
+    outline-offset: 10px;
+    border-radius: 30px;
+}
+
+.teddy-hearts {
+    position: absolute;
+    inset: 90px 70px 220px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.teddy-heart-pop {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 18px;
+    opacity: 0;
+    animation: teddyHeartPop 1.7s ease-out forwards;
+}
+
+@keyframes teddyHeartPop {
+    0% { opacity: 0; transform: translate(-50%, 10px) scale(0.5); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--x)), -85px) scale(1.15); }
+}
+
+.teddy-card.teddy-reacting .teddy-blush {
+    opacity: 0.95;
+    animation: blushPulse 0.9s ease-in-out 2;
+}
+
+@keyframes blushPulse {
+    0%,100% { transform: scale(0.9); }
+    50% { transform: scale(1.18); }
+}
+
+/* 3 — secret heart */
+.secret-heart-label {
+    margin: 4px auto 10px;
+    font-size: 0.68rem;
+    line-height: 1.6;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,0.42);
+    opacity: 0.9;
+}
+
+.secret-heart-label span {
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.27);
+}
+
+.memory-icon {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.memory-icon:hover,
+.memory-icon:focus-visible {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 16px rgba(255,190,220,0.35));
+    outline: none;
+}
+
+.secret-message {
+    max-width: 440px;
+    margin: 18px auto 0;
+    padding: 18px 20px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.035);
+    color: rgba(255,255,255,0.72);
+    font-size: 0.88rem;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.secret-message.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* 6 — song fade visual support */
+.song-content.song-ending {
+    transition: opacity 1.4s ease, transform 1.4s ease;
+    opacity: 0.35;
+    transform: scale(0.985);
+}
+
+/* 7 — emotional transition */
+.memory-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    background: rgba(7,6,17,0.96);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.memory-transition.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.memory-transition p {
+    max-width: 520px;
+    margin-top: 18px;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    line-height: 1.8;
+    color: rgba(255,255,255,0.72);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 1.2s ease 0.35s, transform 1.2s ease 0.35s;
+}
+
+.memory-transition.show p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.memory-transition-stars {
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 4px;
+    animation: transitionStars 2.4s ease-in-out infinite;
+}
+
+@keyframes transitionStars {
+    0%,100% { opacity: 0.35; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-6px); }
+}
+
+/* Final-message button now belongs to the final-message card */
+.final-message-content .ending-next-btn {
+    margin: 30px auto 0;
+}
+
+.final-message-content .ending-next-btn.show {
+    pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+    .secret-heart-label { margin-top: 0; }
+    .secret-message { font-size: 0.82rem; padding: 15px 16px; }
+    .teddy-hearts { inset: 100px 55px 220px; }
+}
+
+
+
+
+/* =====================================
+   INTERACTIVE GIFT BOX SURPRISE
+===================================== */
+
+.gift-card {
+    text-align: center;
+    position: relative;
+    width: min(92%, 620px);
+    margin: auto;
+}
+
+.gift-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+    color: var(--viz-muted, #aaa);
+}
+
+.gift-top p {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.gift-message p {
+    margin: 0 0 28px;
+    font-size: 18px;
+}
+
+.gift-box-area {
+    position: relative;
+    width: 260px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.gift-box {
+    position: absolute;
+    width: 210px;
+    height: 180px;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+}
+
+.gift-base {
+    position: absolute;
+    width: 190px;
+    height: 125px;
+    left: 10px;
+    bottom: 0;
+    background: linear-gradient(145deg, #8d5367, #63384b);
+    border-radius: 8px;
+    box-shadow: 0 18px 35px rgba(0,0,0,.35);
+    z-index: 2;
+}
+
+.gift-ribbon-vertical {
+    position: absolute;
+    width: 28px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,.18);
+}
+
+.gift-lid {
+    position: absolute;
+    width: 215px;
+    height: 48px;
+    left: -2px;
+    bottom: 112px;
+    background: linear-gradient(145deg, #a9657d, #744258);
+    border-radius: 8px;
+    z-index: 4;
+    transition: transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.gift-ribbon-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 22px;
+    top: 13px;
+    background: rgba(255,255,255,.16);
+}
+
+.gift-bow {
+    position: absolute;
+    width: 70px;
+    height: 45px;
+    left: 50%;
+    top: -32px;
+    transform: translateX(-50%);
+}
+
+.bow-left,
+.bow-right {
+    position: absolute;
+    width: 38px;
+    height: 30px;
+    border: 5px solid rgba(255,255,255,.55);
+    border-radius: 50% 50% 45% 45%;
+    top: 5px;
+}
+
+.bow-left {
+    left: 0;
+    transform: rotate(-25deg);
+}
+
+.bow-right {
+    right: 0;
+    transform: rotate(25deg);
+}
+
+.bow-center {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(255,255,255,.7);
+}
+
+/* =========================================
+   GIFT BOX TEDDY — SCOPED
+   Keeps this teddy independent from the birthday teddy.
+========================================= */
+
+.gift-teddy {
+    position: absolute;
+    width: 130px;
+    height: 190px;
+    left: 50%;
+    bottom: 48px;
+    transform: translate(-50%, 35px) scale(.72);
+    opacity: 0;
+    z-index: 5;
+    transition:
+        transform 1.2s cubic-bezier(.2,.8,.2,1),
+        opacity .6s ease;
+}
+
+.gift-teddy .teddy-ear {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    top: 2px;
+    border-radius: 50%;
+    background: #b47b58;
+    z-index: 1;
+}
+
+.gift-teddy .teddy-ear-left {
+    left: 10px;
+}
+
+.gift-teddy .teddy-ear-right {
+    right: 10px;
+}
+
+.gift-teddy .teddy-head {
+    position: absolute;
+    width: 82px;
+    height: 74px;
+    left: 24px;
+    top: 8px;
+    border-radius: 50%;
+    background: #c99570;
+    z-index: 3;
+    box-shadow: inset 5px 5px 9px rgba(255,255,255,.08);
+}
+
+.gift-teddy .teddy-eye {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    top: 30px;
+    border-radius: 50%;
+    background: #33251f;
+}
+
+.gift-teddy .teddy-eye-left {
+    left: 22px;
+}
+
+.gift-teddy .teddy-eye-right {
+    right: 22px;
+}
+
+.gift-teddy .teddy-nose {
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    left: 34px;
+    top: 43px;
+    border-radius: 50%;
+    background: #5c382c;
+}
+
+/* Full visible tummy/body */
+.gift-teddy .teddy-body {
+    position: absolute;
+    width: 92px;
+    height: 88px;
+    left: 19px;
+    top: 76px;
+    bottom: auto;
+    border-radius: 48% 48% 38% 38%;
+    background: #c99570;
+    z-index: 2;
+    box-shadow:
+        inset 6px 6px 10px rgba(255,255,255,.08),
+        inset -7px -8px 12px rgba(0,0,0,.10);
+}
+
+.gift-teddy .teddy-arm {
+    position: absolute;
+    width: 27px;
+    height: 58px;
+    top: 78px;
+    bottom: auto;
+    border-radius: 50%;
+    background: #b9815f;
+    z-index: 1;
+}
+
+.gift-teddy .teddy-arm-left {
+    left: 2px;
+    transform: rotate(20deg);
+}
+
+.gift-teddy .teddy-arm-right {
+    right: 2px;
+    transform: rotate(-20deg);
+}
+
+/* Little feet make the teddy look complete */
+.gift-teddy::before,
+.gift-teddy::after {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 28px;
+    top: 156px;
+    border-radius: 50%;
+    background: #b9815f;
+    z-index: 1;
+}
+
+.gift-teddy::before {
+    left: 25px;
+    transform: rotate(-8deg);
+}
+
+.gift-teddy::after {
+    right: 25px;
+    transform: rotate(8deg);
+}
+
+.gift-teddy .teddy-heart {
+    position: absolute;
+    left: 50%;
+    top: 108px;
+    bottom: auto;
+    transform: translateX(-50%);
+    font-size: 25px;
+    z-index: 4;
+}
+
+.gift-instruction {
+    margin: 5px 0 18px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: opacity .4s ease;
+}
+
+.open-gift-btn,
+.gift-next-btn {
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform .25s ease, opacity .4s ease;
+}
+
+.open-gift-btn:hover,
+.gift-next-btn:hover {
+    transform: translateY(-2px);
+}
+
+.gift-reveal-message,
+.gift-next-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gift-reveal-message {
+    margin: 18px auto;
+}
+
+.gift-reveal-message p {
+    margin: 0;
+    font-size: 17px;
+}
+
+.gift-box.opened .gift-lid {
+    transform: translateY(-125px) rotate(-5deg);
+}
+
+.gift-box.opened .gift-teddy {
+    opacity: 1;
+    z-index: 5;
+    transform: translate(-50%, -92px) scale(1);
+}
+
+.gift-box.opened ~ .gift-instruction {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gift-card.revealed .gift-instruction {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gift-card.revealed .gift-reveal-message,
+.gift-card.revealed .gift-next-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 500px) {
+
+    .gift-box-area {
+        transform: scale(.88);
+        margin-top: -10px;
+        margin-bottom: -15px;
+    }
+
+    .gift-message p {
+        font-size: 16px;
+    }
+
+}
+
+/* =========================================
+   QUESTION — VERTICAL CHECKBOX OPTIONS
+   Each option stays on its own line.
+========================================= */
+
+.question-options {
+    width: min(100%, 500px);
+    margin: 25px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 16px;
+    margin: 0;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.question-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0 12px 0 0;
+
+    flex: 0 0 18px;
+
+    accent-color: #d99bb2;
+    cursor: pointer;
+}
+
+.question-option span {
+    display: block;
+    flex: 1;
+
+    font-size: 15px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.88);
+    text-align: left;
+}
+
+.question-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-1px);
+}
+
+.question-option.selected {
+    background: rgba(217, 155, 178, 0.12);
+    border-color: rgba(217, 155, 178, 0.55);
+}
+
+.question-option.selected span {
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+
+    .question-options {
+        width: 100%;
+        gap: 9px;
+    }
+
+    .question-option {
+        min-height: 50px;
+        padding: 13px 14px;
+    }
+
+    .question-option span {
+        font-size: 14px;
+    }
+}
+
